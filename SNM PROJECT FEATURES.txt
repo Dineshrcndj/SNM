@@ -1,0 +1,58 @@
+Simple Notes Management System
+
+Features:
+1. User registeration
+2. User authentication by using email otp generation
+3. MySQL connection to store data
+4. User login along with sesssion creation
+5. Dashboard -- 
+	Add Notes
+	View all notes
+	View single notes
+	Update notes
+	Delete Notes
+
+	Upload file,
+	View all files
+	View file
+	Download file
+
+	Excel data creation of all notes
+6. Search button
+7. Logout
+-----------New Topics------------
+	1. Session handling
+	2. MySQL Connection
+	3. Email automation
+	4. OTP generation
+	5. File Uploading
+	6. Excel Creation
+
+HTML Pages:
+1. Welcome Page 	-- Register button , login button
+2. Register Page 	-- Inputs (Username, Email, Password), Submit Button
+3. OTP Validation Page -- Inputs(Enter OTP), Submit Button
+4. Login Page	-- Inputs(Email, Password), Submit button
+5. Dashboard Page	-- nav(notes {dropdown -- Add Notes, View all notes, get excel data}, 
+		           Files{dropdown -- Upload File, View all files},
+		           Search Button,
+		           Logout Button.
+6. Add notes Page 	-- Inputs(Title, description (textarea)), Submit Button
+7. View all notes Page -- table(heading notesid, title, created_at, view notes, updatelink, deletelink)
+8. View notes page	-- h1(to display title), input(description readonly), h1(notes time)
+9. Update notes page	-- input(to update title), input(update description), Submit button.
+10. File upload page	-- input(to upload file), Submit button.
+11. View all files	-- table(heading file_id, title, created_at, view_filelink, download_filelink, deletelink)
+
+
+
+
+------------------------Random Module-----------------------
+1. Random.randrange(0,9) 	----- Generates no between 0 to 8
+2. Random.randint(0,9)	----- Generates no between 0 to 9
+3. Random.choice(list())	----- Generates an item in list
+4. Random.sample(list(),k=2)	----- Generaets 2 items present in list
+
+
+
+ 
