@@ -53,6 +53,15 @@ HTML Pages:
 3. Random.choice(list())	----- Generates an item in list
 4. Random.sample(list(),k=2)	----- Generaets 2 items present in list
 
+pip install mysql-connector-python
+pip install itsdangerous
+
+MySQL
+create database snmp;
+use snmp;
+create table users(username varchar(50) not null,email varchar(50) primary key,password varchar(50) not null);
+create table notes(nid int primary key,title varchar(255),description longtext,created_at datetime default now(),added_by varchar(50),foreign key(added_by) references users(email) on update cascade on delete set null);
+create table filedata(fid int primary key, filename varchar(20) unique not null, fdata longblob, created_at datetime default now(), added_by varchar(50));
 
 
  

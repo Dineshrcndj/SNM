@@ -1,12 +1,10 @@
-import random
-def gen_otp():
-    gotp=''
-    cap=[chr(i) for i in range(ord('A'),ord('Z')+1)]
-    small=[chr(i) for i in range(ord('a'),ord('z')+1)]
-    for i in range(2):
-        gotp=gotp+random.choice(cap)
-        gotp=gotp+random.choice(small)
-        gotp=gotp+str(random.randint(0,9))
-    return gotp
-
-
+import mysql.connector 
+# app.secret_key='dineshkey'
+# user_data={'dinesh':{'email':'dinesh.rcnd@gmail.com','password':'123'}}
+userdata={}
+mydb=mysql.connector.connect(user='root',host='localhost',password='admin',db='snmp') #Mysql connection
+cursor=mydb.cursor()
+a=cursor.execute('select username from users where email="dinesh.rcnd1@gmail.com"')
+mydb.commit()
+print(a)
+cursor.close()

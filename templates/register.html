@@ -6,6 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{url_for('static',filename='register.css')}}">
 </head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <body>
     <form method="post">
     <h1>Welcome to register page</h1>

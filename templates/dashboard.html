@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes Management Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/dashboard">SNM Dashboard</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <!-- Notes Management Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="notesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Notes Management
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="notesDropdown">
+                            <a class="dropdown-item" href="/add-note">Add Notes</a>
+                            <a class="dropdown-item" href="/view-notes">View All Notes</a>
+                            <a class="dropdown-item" href="/view-single-note">View Single Note</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/update-note">Update Notes</a>
+                            <a class="dropdown-item" href="/delete-note">Delete Notes</a>
+                        </div>
+                    </li>
+                    
+                    <!-- File Management Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="filesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            File Management
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="filesDropdown">
+                            <a class="dropdown-item" href="/upload-file">Upload File</a>
+                            <a class="dropdown-item" href="/view-files">View All Files</a>
+                            <a class="dropdown-item" href="/view-file">View File</a>
+                            <a class="dropdown-item" href="/download-file">Download File</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Data Export Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="exportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Export
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="exportDropdown">
+                            <a class="dropdown-item" href="/export-excel">Export Notes to Excel</a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <!-- User Info and Logout -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="text-light">{{session.get('user')}}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="/profile">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4">Welcome to <span class="text-primary">SNM Dashboard</span></h2>
+                <p class="text-center text-muted">Use the navigation menu above to access all features</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats Cards (Optional) -->
+        <div class="row mt-4">
+            <div class="col-md-4 mb-3">
+                <div class="card border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Notes Management</h5>
+                        <p class="card-text">Create, view, update and manage your notes efficiently.</p>
+                        <a href="/view-notes" class="btn btn-primary btn-sm">View All Notes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-success">File Management</h5>
+                        <p class="card-text">Upload, download and organize your files securely.</p>
+                        <a href="/view-files" class="btn btn-success btn-sm">View All Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-info">Data Export</h5>
+                        <p class="card-text">Export your notes and data in various formats.</p>
+                        <a href="/export-excel" class="btn btn-info btn-sm">Export to Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
