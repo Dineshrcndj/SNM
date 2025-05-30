@@ -79,7 +79,7 @@ def login():
                 session['user']=useremail
                 print(session)
                 flash('Login Successful')
-                return redirect(url_for('dashboard',dashboard_username=entoken(data=useremail)))
+                return redirect(url_for('dashboard'))
             else:
                 flash('Invalid Password')
         elif count_email[0]==0:
@@ -87,10 +87,29 @@ def login():
             return redirect(url_for('login'))
     return render_template('login.html')
 
-@app.route('/dashboard/<dashboard_username>')
-def dashboard(dashboard_username):
-    dashboard_username=detoken(data=dashboard_username)
+@app.route('/dashboard')
+def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/addnotes',methods=['GET','POST'])
+def addnotes():
+    if request.method=='POST':
+        title=request.form['title']
+        description=request.form['description']
+        cursor=mydb.cursor(buffered=True)
+        cursor.execute('select count(nid) from notes')
+        nid_count=cursor.fetchone()
+        if nid_count:
+            nid=nid_count[0]+1
+            cursor.execute('insert into notes(nid,title,description,added_by) values(%s,%s,%s,%s)',[nid,title,description,session.get('user')])
+            mydb.commit()
+            cursor.close()
+            flash(f'notes {title} added successfully')
+            return 'Notes added'
+        else:
+            flash('nid not found')
+            return redirect(url_for('dashboard'))
+    return render_template('addnotes.html')
 
 app.run(use_reloader=True,debug=True)
 
