@@ -105,11 +105,28 @@ def addnotes():
             mydb.commit()
             cursor.close()
             flash(f'notes {title} added successfully')
-            return 'Notes added'
+            return redirect(url_for('viewallnotes'))
         else:
             flash('nid not found')
             return redirect(url_for('dashboard'))
     return render_template('addnotes.html')
+
+@app.route('/viewallnotes')
+def viewallnotes():
+    cursor=mydb.cursor()
+    cursor.execute('select nid,title,created_at from notes where added_by=%s',[session.get('user')])
+    allnotesdata=cursor.fetchall()
+    cursor.close()
+    return render_template('viewallnotes.html',allnotesdata=allnotesdata)
+
+# For Single notes
+@app.route('/viewnotes/<nid>')
+def viewnotes(nid):
+    cursor=mydb.cursor()
+    cursor.execute('select * from notes where nid=%s and added_by=%s',[nid,session.get('user')])
+    notesdata=cursor.fetchone()
+    return render_template('viewnotes.html',notesdata=notesdata)
+
 
 app.run(use_reloader=True,debug=True)
 

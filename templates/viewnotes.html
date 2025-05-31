@@ -1,0 +1,33 @@
+
+<!-- <!DOCTYPE html>
+<html>
+<head> -->
+    <title>View Notes</title>
+    <!-- Here we are giving code to dashboard.html page from this page -->
+    {% extends 'dashboard.html' %}
+    {% block addcss %}
+    <link rel="stylesheet" href="{{url_for('static',filename='addnotes.css')}}"/>
+    {% endblock %}
+<!-- </head>
+<body> -->
+    
+    {% block content %}
+
+    <!-- Welcome {{session['user']}} -->
+    <div class="container1">
+        <h2>View Notes</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{notesdata[1]}}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" readonly>{{notesdata[2]}} </textarea>
+            </div>
+            <button type="submit" href="#">View Note</button>
+        </form>
+    </div>
+    {% endblock %}
+<!-- </body>
+</html> -->
